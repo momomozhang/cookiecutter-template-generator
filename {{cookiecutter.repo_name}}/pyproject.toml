@@ -31,6 +31,10 @@ version = { file = "version.txt" }
 [tool.pytest.ini_options]
 markers = ["slow: marks tests as slow (deselect with '-m \"not slow\"')"]
 
+[tool.isort]
+profile = "black"
+line_length = 119
+
 [tool.black]
 line-length = 119
 exclude = "venv"
@@ -43,12 +47,6 @@ max-line-length = 119
 
 # radon
 radon-max-cc = 10
-
-[tool.isort]
-profile = "black"
-multi_line_output = "VERTICAL_HANGING_INDENT"
-force_grid_wrap = 2
-line_length = 119
 
 [tool.pylint."messages control"]
 disable = [

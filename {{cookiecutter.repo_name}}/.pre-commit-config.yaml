@@ -1,5 +1,3 @@
-# See https://pre-commit.com for more information
-# See https://pre-commit.com/hooks.html for more hooks
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
@@ -9,8 +7,6 @@ repos:
       # Trims trailing whitespace. Allow a single space on the end of .md lines for hard line breaks.
       - id: trailing-whitespace
         args: [--markdown-linebreak-ext=md]
-      # Makes sure files end in a newline and only a newline;
-      - id: end-of-file-fixer
       # Attempts to load all TOML files to verify syntax.
       - id: check-toml
       # Attempts to load all yaml files to verify syntax; unsafe: only check syntax, do not load yaml
@@ -63,6 +59,13 @@ repos:
             --config-file=./pyproject.toml,
           ]
 
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        args:
+          - --settings-path=./pyproject.toml
+
   - repo: https://github.com/psf/black
     rev: 23.1.0
     hooks:
@@ -74,6 +77,8 @@ repos:
     rev: v2.16.3
     hooks:
       - id: pylint
+        args:
+          - --rcfile=./pyproject.toml
 
   - repo: https://github.com/PyCQA/flake8
     rev: 6.0.0
@@ -85,13 +90,6 @@ repos:
           - radon
           - flake8-docstrings
           - Flake8-pyproject
-
-  - repo: https://github.com/pycqa/isort
-    rev: 5.12.0
-    hooks:
-      - id: isort
-        args:
-          - --settings-path=./pyproject.toml
 
   - repo: https://github.com/PyCQA/autoflake
     rev: v2.0.1

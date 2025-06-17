@@ -1,12 +1,12 @@
 # Python .gitignore template from
 # https://github.com/github/gitignore/blob/main/Python.gitignore
-
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-
+.pytest_cache
 # C extensions
 *.so
 
