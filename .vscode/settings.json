@@ -26,7 +26,9 @@
             "source.organizeImports": "explicit"
         },
         "editor.formatOnSave": true,
+        "editor.defaultFormatter": "ms-python.black-formatter"
     },
+    "python.sortImports.provider": "isort",
     "python.analysis.autoImportCompletions": true,
     "python.analysis.indexing": true,
     "python.languageServer": "Pylance",
