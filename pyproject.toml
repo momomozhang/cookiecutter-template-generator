@@ -7,7 +7,19 @@ exclude = ["venv"]
 
 [tool.flake8]
 docstring-convention = "all"
-ignore = ["D107", "D212", "E501", "W503", "W605", "D203", "D100"]
+ignore = [
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D106",
+    "D107",
+    "E501",
+    "W503",
+    "W605",
+]
 exclude = ["venv"]
 max-line-length = 119
 
@@ -25,6 +37,8 @@ disable = [
     "line-too-long",
     "trailing-whitespace",
     "missing-function-docstring",
+    "missing-module-docstring",
+    "missing-class-docstring",
     "consider-using-f-string",
     "import-error",
     "too-few-public-methods",
