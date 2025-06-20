@@ -17,6 +17,9 @@ lint-ci:
 test:
 	bash run.sh run-tests
 
+test-wheel-locally:
+	bash run.sh test:wheel-locally
+
 clean:
 	bash run.sh clean
 
