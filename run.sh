@@ -7,7 +7,7 @@ THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # install core and development Python dependencies into the currently activated venv
 function install {
     python3 -m pip install --upgrade pip
-    python3 -m pip install cookiecutter pytest pre-commit
+    python3 -m pip install cookiecutter pytest pre-commit pytest-cov
 }
 
 # run linting, formatting, and other static code quality tools
@@ -29,7 +29,7 @@ function test:quick {
 
 # (example) ./run.sh test tests/test_states_info.py::test__slow_add
 function run-tests {
-    python3 -m pytest ${@:-"$THIS_DIR/tests/"}
+    python3 -m pytest -v ${@:-"$THIS_DIR/tests/"}
 }
 
 function generate-project {
