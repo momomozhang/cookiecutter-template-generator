@@ -1,9 +1,11 @@
 [tool.pytest.ini_options]
 markers = ["slow: marks tests as slow (deselect with '-m \"not slow\"')"]
 
-[tool.ruff.lint]
+[tool.ruff]
 line-length = 119
 exclude = ["venv"]
+
+[too.ruff.lint]
 select = [
     "E",   # pycodestyle errors
     "F",   # pyflakes
