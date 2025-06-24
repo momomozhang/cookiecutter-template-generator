@@ -14,7 +14,7 @@ def project_dir():
     template_values = {
         "repo_name": f"test-repo-{test_session_id}",
     }
-    generated_repo_dir: Path = generate_project(template_values=template_values)
+    generated_repo_dir: Path = generate_project(template_values=template_values, test_session_id=test_session_id)
     try:
         initialize_git_repo(repo_dir=generated_repo_dir)
         subprocess.run(["make", "lint-ci"], cwd=generated_repo_dir, check=False)
