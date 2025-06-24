@@ -4,6 +4,7 @@ import re
 import pytest
 
 from tests.consts import PROJECT_DIR
+from tests.utils.template import find_template_files
 
 
 class TestTemplateVariableConsistency:
@@ -12,19 +13,7 @@ class TestTemplateVariableConsistency:
     @pytest.fixture
     def template_files(self):
         """Find all template files containing cookiecutter variables."""
-        template_dir = PROJECT_DIR / "{{cookiecutter.repo_name}}"
-        template_files = []
-
-        for file_path in template_dir.rglob("*"):
-            if file_path.is_file():
-                try:
-                    content = file_path.read_text(encoding="utf-8")
-                    if "{{cookiecutter." in content:
-                        template_files.append(file_path)
-                except (UnicodeDecodeError, PermissionError):
-                    continue
-
-        return template_files
+        return find_template_files()
 
     @pytest.fixture
     def expected_variables(self):

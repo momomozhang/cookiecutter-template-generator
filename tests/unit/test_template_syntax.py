@@ -2,6 +2,7 @@ import pytest
 from jinja2 import Environment, TemplateSyntaxError
 
 from tests.consts import PROJECT_DIR
+from tests.utils.template import find_template_files
 
 
 class TestJinja2SyntaxValidation:
@@ -10,20 +11,7 @@ class TestJinja2SyntaxValidation:
     @pytest.fixture
     def template_files(self):
         """Find all files containing cookiecutter template syntax."""
-        template_dir = PROJECT_DIR / "{{cookiecutter.repo_name}}"
-        template_files = []
-
-        # Find files with {{cookiecutter.*}} syntax
-        for file_path in template_dir.rglob("*"):
-            if file_path.is_file():
-                try:
-                    content = file_path.read_text(encoding="utf-8")
-                    if "{{cookiecutter." in content:
-                        template_files.append(file_path)
-                except (UnicodeDecodeError, PermissionError):
-                    continue
-
-        return template_files
+        return find_template_files()
 
     def test_template_files_found(self, template_files):
         """Verify we found template files to validate."""

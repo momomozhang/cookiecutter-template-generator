@@ -1,4 +1,3 @@
-import shutil
 import subprocess
 import time
 from dataclasses import dataclass
@@ -7,8 +6,8 @@ from typing import List
 
 import pytest
 
-from tests.consts import PROJECT_DIR
 from tests.utils.project import generate_project
+from tests.utils.cleanup import cleanup_sample_directory, cleanup_cookiecutter_configs
 
 
 @dataclass
@@ -29,13 +28,8 @@ class TestRepositoryNameRobustValidation:
     def cleanup_generated_projects(self):
         """Clean up generated projects after each test."""
         yield
-        sample_dir = PROJECT_DIR / "sample"
-        if sample_dir.exists():
-            shutil.rmtree(sample_dir)
-
-        # Clean up cookiecutter config files
-        for config_file in PROJECT_DIR.glob("tests/cookiecutter-*.json"):
-            config_file.unlink()
+        cleanup_sample_directory()
+        cleanup_cookiecutter_configs()
 
     @pytest.fixture
     def repo_name_test_cases(self) -> List[RepoNameTestCase]:
