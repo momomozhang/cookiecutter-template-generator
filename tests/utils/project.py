@@ -65,6 +65,7 @@ def generate_test_project(repo_name: str, package_name: str) -> Path:
 
     Returns:
         Path to the generated project directory
+
     """
     test_session_id = str(uuid4())
     template_values = {"repo_name": repo_name, "package_import_name": package_name}
@@ -84,6 +85,7 @@ def validate_project_structure(project_path: Path, package_name: str):
     Args:
         project_path: Path to the generated project
         package_name: Expected package name
+
     """
     # Verify package structure
     src_package_dir = project_path / "src" / package_name

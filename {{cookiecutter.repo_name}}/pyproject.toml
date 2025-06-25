@@ -1,6 +1,6 @@
 [build-system]
 # Minimum requirements for the build system to execute.
-requires = ["setuptools>=61.0.0", "wheel"]
+requires = ["setuptools>=65.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.package-data]
@@ -11,10 +11,16 @@ name = "{{cookiecutter.repo_name}}"
 authors = [{ name = "Mengni Zhang", email = "monicamengni@gmail.com" }]
 description = "My package description"
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.10"
 keywords = ["one", "two"]
-license = { text = "MIT" }
-classifiers = ["Programming Language :: Python :: 3"]
+license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13"
+]
 dependencies = ["numpy", 'importlib-metadata; python_version<"3.12"']
 dynamic = ["version"]
 

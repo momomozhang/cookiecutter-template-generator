@@ -3,8 +3,8 @@
 import subprocess
 from pathlib import Path
 
-from tests.utils.project import generate_test_project, validate_project_structure
 from tests.utils.cleanup import cleanup_generated_project, extract_test_session_id
+from tests.utils.project import generate_test_project, validate_project_structure
 
 
 class TestGenerationPipeline:

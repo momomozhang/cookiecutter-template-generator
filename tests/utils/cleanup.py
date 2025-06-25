@@ -12,6 +12,7 @@ def cleanup_generated_project(project_path: Path, test_session_id: str = None):
     Args:
         project_path: Path to the generated project directory
         test_session_id: Optional test session ID for cleaning up config files
+
     """
     # Remove project directory
     if project_path.exists():
@@ -45,6 +46,7 @@ def extract_test_session_id(project_path: Path) -> str:
 
     Returns:
         Test session ID if found in path, None otherwise
+
     """
     path_parts = project_path.name.split("-")
     # Look for UUID-like patterns in the path

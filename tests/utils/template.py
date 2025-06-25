@@ -1,16 +1,16 @@
 """Template discovery and analysis utilities."""
 
 from pathlib import Path
-from typing import List
 
 from tests.consts import PROJECT_DIR
 
 
-def find_template_files() -> List[Path]:
+def find_template_files() -> list[Path]:
     """Find all template files containing cookiecutter variables.
 
     Returns:
         List of Path objects for files containing cookiecutter variables
+
     """
     template_dir = PROJECT_DIR / "{{cookiecutter.repo_name}}"
     template_files = []

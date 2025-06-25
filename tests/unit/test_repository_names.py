@@ -2,12 +2,11 @@ import subprocess
 import time
 from dataclasses import dataclass
 from pathlib import Path
-from typing import List
 
 import pytest
 
+from tests.utils.cleanup import cleanup_cookiecutter_configs, cleanup_sample_directory
 from tests.utils.project import generate_project
-from tests.utils.cleanup import cleanup_sample_directory, cleanup_cookiecutter_configs
 
 
 @dataclass
@@ -32,7 +31,7 @@ class TestRepositoryNameRobustValidation:
         cleanup_cookiecutter_configs()
 
     @pytest.fixture
-    def repo_name_test_cases(self) -> List[RepoNameTestCase]:
+    def repo_name_test_cases(self) -> list[RepoNameTestCase]:
         """Define comprehensive test cases for repository names."""
         return [
             # Hyphenated names - common GitHub pattern
@@ -220,7 +219,7 @@ class TestRepositoryNameRobustValidation:
             f"  - {failure}" for failure in import_failures
         )
 
-    def _validate_project_structure(self, project_dir: Path, package_name: str) -> List[str]:
+    def _validate_project_structure(self, project_dir: Path, package_name: str) -> list[str]:
         """Validate that generated project has correct structure."""
         errors = []
 

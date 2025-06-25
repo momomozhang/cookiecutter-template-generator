@@ -4,14 +4,14 @@ import re
 
 import pytest
 
-from tests.utils.project import generate_test_project, validate_project_structure
 from tests.utils.cleanup import cleanup_generated_project, extract_test_session_id
+from tests.utils.project import generate_test_project, validate_project_structure
 
 
 class TestPythonVersionMatrix:
     """Test generated projects work across Python versions."""
 
-    SUPPORTED_PYTHON_VERSIONS = ["3.9", "3.10", "3.11", "3.12"]
+    SUPPORTED_PYTHON_VERSIONS = ["3.10", "3.11", "3.12"]
     EXPERIMENTAL_VERSIONS = ["3.13"]
 
     @pytest.mark.parametrize("python_version", SUPPORTED_PYTHON_VERSIONS)
