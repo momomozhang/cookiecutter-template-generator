@@ -11,16 +11,20 @@ from tests.consts import PROJECT_DIR
 
 def initialize_git_repo(repo_dir: Path):
     """Run git commands to make a directory into a valid git repository."""
-    # git init
-    subprocess.run(["git", "init"], cwd=repo_dir, check=True)
-    # commit the contents to the 'main' branch
-    subprocess.run(["git", "branch", "-M", "main"], cwd=repo_dir, check=True)
-    subprocess.run(["git", "add", "--all"], cwd=repo_dir, check=True)
-    subprocess.run(
-        ["git", "commit", "-m", "'feat: initial commit by pytest'"],
-        cwd=repo_dir,
-        check=True,
-    )
+    git_commands = [
+        (["git", "init"], "Failed to initialize git repository"),
+        (["git", "config", "user.name", "Test User"], "Failed to set git user name"),
+        (["git", "config", "user.email", "test@example.com"], "Failed to set git email"),
+        (["git", "branch", "-M", "main"], "Failed to create main branch"),
+        (["git", "add", "--all"], "Failed to stage files"),
+        (["git", "commit", "-m", "feat: initial commit by pytest"], "Failed to commit files"),
+    ]
+
+    for cmd, error_msg in git_commands:
+        try:
+            subprocess.run(cmd, cwd=repo_dir, check=True, capture_output=True, text=True)
+        except subprocess.CalledProcessError as e:
+            raise RuntimeError(f"{error_msg}: {e.stderr}") from e
 
 
 def generate_project(template_values: dict[str, str], test_session_id: str):
