@@ -8,19 +8,29 @@ import pytest
 from tests.utils.project import generate_project, initialize_git_repo
 
 
+def simple_cleanup(path: Path):
+    """Simplified cleanup that handles permission issues gracefully."""
+    if not path.exists():
+        return
+
+    try:
+        shutil.rmtree(path)
+    except (OSError, PermissionError):
+        # Ignore cleanup errors in tests - they don't affect test results
+        pass
+
+
 @pytest.fixture(scope="session")
 def project_dir():
     test_session_id: str = generate_test_session_id()
-    template_values = {
-        "repo_name": f"test-repo-{test_session_id}",
-    }
+    template_values = {"repo_name": f"test-repo-{test_session_id}", "package_import_name": "test_package"}
     generated_repo_dir: Path = generate_project(template_values=template_values, test_session_id=test_session_id)
     try:
         initialize_git_repo(repo_dir=generated_repo_dir)
         subprocess.run(["make", "lint-ci"], cwd=generated_repo_dir, check=False)
         yield generated_repo_dir
     finally:
-        shutil.rmtree(path=generated_repo_dir)
+        simple_cleanup(generated_repo_dir)
 
     config_file = generated_repo_dir.parent.parent / "cookiecutter-test-config.json"
     if config_file.exists():
