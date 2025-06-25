@@ -24,7 +24,7 @@ jobs:
   create-repo-if-not-exists:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Configure git user
@@ -43,7 +43,7 @@ jobs:
     needs: [create-repo-if-not-exists]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Configure git user
@@ -62,7 +62,7 @@ jobs:
     needs: [create-repo-if-not-exists]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Configure git user
