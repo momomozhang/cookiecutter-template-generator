@@ -28,6 +28,10 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: make install
+      - name: Configure git CLI
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
       - name: Generate test project
         run: make generate-project
       - name: Test generated project
