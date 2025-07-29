@@ -14,7 +14,7 @@ from {{cookiecutter.package_import_name}} import ...
 
 ```bash
 # clone the repo
-git clone https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.repo_name}}/tree/main
+git clone https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.repo_name}}
 
 # install the dev dependencies
 make install
