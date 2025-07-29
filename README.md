@@ -20,7 +20,7 @@ Each new project comes with:
 - `pytest` for testing.
 - `ruff` and `pylint` for code quality.
 - A basic CI workflow that runs tests.
-- **Automatic PyPI publishing** - users can `pip install` your package once published.
+- **Automatic PyPI publishing** - users can `pip install` my package once published.
 
 ## Setup Note
 
