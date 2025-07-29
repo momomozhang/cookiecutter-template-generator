@@ -1,4 +1,5 @@
 {
     "repo_name": "repo-name",
-    "package_import_name": "example_package"
+    "package_import_name": "example_package",
+    "github_username": "your-github-username"
 }
