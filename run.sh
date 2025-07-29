@@ -233,7 +233,7 @@ EOF
     git add --all
 
     # commit the changes and push them to the remote feature branch
-    git commit -m 'feat!: populated from `python-course-cookiecutter-v2` template'
+    git commit -m 'populated from cookiecutter template generator'
 
     # if GH_TOKEN is set, set the remote url to it
     if [[ -n "$GH_TOKEN" ]]; then
