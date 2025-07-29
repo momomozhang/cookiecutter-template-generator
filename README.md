@@ -1,6 +1,6 @@
 # My Python Project Starter
 
-This is my personal tool to bootstrap a new Python project. It's all done through a GitHub Action.
+This is my personal tool to bootstrap a new Python project. It's all done through a GitHub Action. This is a final project of `Taking Python to Production` course by @phitoduck
 
 ## How to Create a New Project
 
