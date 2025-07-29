@@ -74,7 +74,7 @@ function generate-project {
     git branch -M main
 
     echo "=== Committing changes ==="
-    git commit -m "feat: generated sample project with python-course-cookiecutter-v2"
+    git commit -m "feat: generated with cookiecutter template generator"
 
     echo "=== Project generation completed successfully ==="
     set +x  # Disable verbose debugging
