@@ -58,10 +58,19 @@ jobs:
       - check-version-txt
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
-      - name: Push tags
+        with:
+          fetch-depth: 0
+      - name: Configure git
         run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Create and push tags
+        run: |
+          git tag $(cat version.txt)
           git push origin --tags
 
   # https://docs.github.com/en/actions/learn-github-actions/contexts#example-printing-context-information-to-the-log
