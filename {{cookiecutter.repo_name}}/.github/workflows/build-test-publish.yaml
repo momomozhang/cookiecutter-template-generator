@@ -59,7 +59,7 @@ jobs:
         run: |
           /bin/bash -x run.sh build
       - name: Upload wheel and sdist
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: wheel-and-sdist
           path: ./dist/*
@@ -75,7 +75,7 @@ jobs:
         with:
           python-version: 3.8
       - name: Download wheel and sdist
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: wheel-and-sdist
           path: ./dist/
@@ -101,7 +101,7 @@ jobs:
         with:
           python-version: 3.8
       - name: Download wheel and sdist
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: wheel-and-sdist
           path: ./dist/
