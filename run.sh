@@ -207,6 +207,7 @@ function open-pr-with-generated-project {
 default_context:
     repo_name: $REPO_NAME
     package_import_name: $PACKAGE_IMPORT_NAME
+    github_username: $GITHUB_USERNAME
 EOF
 
     cookiecutter ./ \
