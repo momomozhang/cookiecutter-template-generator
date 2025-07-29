@@ -14,12 +14,15 @@ on:
         type: boolean
         default: false
 
-jobs:
+permissions:
+  contents: write
 
+jobs:
+  
   check-version-txt:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Tag with the release version
@@ -29,11 +32,11 @@ jobs:
   lint-format-and-static-code-checks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v3
         with:
-          python-version: '3.11'
+          python-version: 3.8
       - name: Install pre-commit
         run: |
           pip install pre-commit
@@ -44,11 +47,11 @@ jobs:
   build-wheel-and-sdist:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v3
         with:
-          python-version: '3.11'
+          python-version: 3.8
       - name: Install build CLI
         run: |
           pip install build
@@ -56,7 +59,7 @@ jobs:
         run: |
           /bin/bash -x run.sh build
       - name: Upload wheel and sdist
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: wheel-and-sdist
           path: ./dist/*
@@ -66,13 +69,13 @@ jobs:
       - build-wheel-and-sdist
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v3
         with:
-          python-version: '3.11'
+          python-version: 3.8
       - name: Download wheel and sdist
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v3
         with:
           name: wheel-and-sdist
           path: ./dist/
@@ -92,13 +95,13 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v3
         with:
-          python-version: '3.11'
+          python-version: 3.8
       - name: Download wheel and sdist
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v3
         with:
           name: wheel-and-sdist
           path: ./dist/
@@ -117,6 +120,7 @@ jobs:
           PROD_PYPI_TOKEN: {% raw %}${{ secrets.PROD_PYPI_TOKEN }}{% endraw %}
       - name: Push tags
         run: |
+          git tag $(cat version.txt)
           git push origin --tags
 
   # https://docs.github.com/en/actions/learn-github-actions/contexts#example-printing-context-information-to-the-log
@@ -125,18 +129,18 @@ jobs:
     steps:
       - name: Dump GitHub context
         id: github_context_step
-        run: echo '{% raw %}${{ toJSON(github) }}'
+        run: echo '{% raw %}${{ toJSON(github) }}'{% endraw %}
       - name: Dump job context
-        run: echo '{% raw %}${{ toJSON(job) }}'
+        run: echo '{% raw %}${{ toJSON(job) }}'{% endraw %}
       - name: Dump steps context
-        run: echo '{% raw %}${{ toJSON(steps) }}'
+        run: echo '{% raw %}${{ toJSON(steps) }}'{% endraw %}
       - name: Dump runner context
-        run: echo '{% raw %}${{ toJSON(runner) }}'
+        run: echo '{% raw %}${{ toJSON(runner) }}'{% endraw %}
       - name: Dump strategy context
-        run: echo '{% raw %}${{ toJSON(strategy) }}{% endraw %}'
+        run: echo '{% raw %}${{ toJSON(strategy) }}'{% endraw %}
       - name: Dump matrix context
-        run: echo '{% raw %}${{ toJSON(matrix) }}{% endraw %}'
+        run: echo '{% raw %}${{ toJSON(matrix) }}'{% endraw %}
       - name: Dump secrets
-        run: echo '{% raw %}${{ toJSON(secrets) }}{% endraw %}'
+        run: echo '{% raw %}${{ toJSON(secrets) }}'{% endraw %}
       - name: Dump vars
-        run: echo '{% raw %}${{ toJSON(vars) }}{% endraw %}'
+        run: echo '{% raw %}${{ toJSON(vars) }}'{% endraw %}

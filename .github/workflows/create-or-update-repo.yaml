@@ -24,13 +24,13 @@ jobs:
   create-repo-if-not-exists:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Configure git user
         run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
+          git config --global user.email "monicamengni@gmail.com"
+          git config --global user.name "Mengni Zhang"
       - run: |
           bash -x run.sh create-repo-if-not-exists
         env:
@@ -43,13 +43,13 @@ jobs:
     needs: [create-repo-if-not-exists]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Configure git user
         run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
+          git config --global user.email "monicamengni@gmail.com"
+          git config --global user.name "Mengni Zhang"
       - run: |
           bash -x run.sh configure-repo
         env:
@@ -62,13 +62,13 @@ jobs:
     needs: [create-repo-if-not-exists]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Configure git user
         run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
+          git config --global user.email "monicamengni@gmail.com"
+          git config --global user.name "Mengni Zhang"
       - run: |
           bash -x run.sh open-pr-with-generated-project
         env:

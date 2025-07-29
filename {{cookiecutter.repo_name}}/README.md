@@ -3,11 +3,11 @@
 ## Quick start
 
 ```bash
-pip install python-course-package
+pip install {{cookiecutter.repo_name}}
 ```
 
 ```python
-from example_pkg import ...
+from {{cookiecutter.package_import_name}} import ...
 ```
 
 ## Contributing

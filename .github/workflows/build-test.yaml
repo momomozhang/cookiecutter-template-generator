@@ -1,4 +1,5 @@
 name: Build, Test
+
 on:
   pull_request:
     types: [opened, synchronize]
@@ -11,7 +12,7 @@ jobs:
   check-version-txt:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Tag with the release version
@@ -21,11 +22,11 @@ jobs:
   lint-format-and-static-code-checks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v3
         with:
-          python-version: '3.11'
+          python-version: 3.8
       - name: Install pre-commit
         run: |
           pip install pre-commit
@@ -36,15 +37,15 @@ jobs:
   execute-tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v3
         with:
-          python-version: '3.11'
+          python-version: 3.8
       - name: Configure git CLI
         run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
+          git config --global user.email "git-bot-user@python-course.com"
+          git config --global user.name "phitoduck"
       - name: Run tests
         run: |
           make install
@@ -57,10 +58,8 @@ jobs:
       - check-version-txt
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    permissions:
-      contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       - name: Push tags
         run: |
           git push origin --tags
