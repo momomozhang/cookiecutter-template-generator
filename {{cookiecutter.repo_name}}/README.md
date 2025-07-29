@@ -13,8 +13,8 @@ from {{cookiecutter.package_import_name}} import ...
 ## Contributing
 
 ```bash
-# view the repo
-https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.repo_name}}/tree/main
+# clone the repo
+git clone https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.repo_name}}/tree/main
 
 # install the dev dependencies
 make install
