@@ -1,6 +1,6 @@
 # {{cookiecutter.repo_name}}
 
-## Quick start
+## Install as package
 
 ```bash
 pip install {{cookiecutter.repo_name}}

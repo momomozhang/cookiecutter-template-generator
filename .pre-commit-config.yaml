@@ -20,7 +20,8 @@ repos:
         exclude: |
           (?x)(
               ^example/large/file.csv|
-              ^example/large/sklearn-model.pkl
+              ^example/large/sklearn-model.pkl|
+              ^cookiecutter_repo_readme_demo.png
           )
       - id: requirements-txt-fixer
       - id: forbid-new-submodules
