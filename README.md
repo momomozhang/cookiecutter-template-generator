@@ -1,4 +1,6 @@
-# Python Repo & PyPI Package Starter
+<div align="center">
+  <h1 align="center">Python Repo &amp; PyPI Package Starter</h1>
+</div>
 
 <div align="center">
   <img src="cookiecutter_repo_readme_demo.png" alt="Cookiecutter Template Generator" width="600">
