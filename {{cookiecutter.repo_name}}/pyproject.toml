@@ -3,6 +3,10 @@
 requires = ["setuptools>=65.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
+# Package data configuration - includes non-Python files in the PyPI distribution
+# Uncomment and customize the patterns below to include data files in your package:
+# [tool.setuptools.package-data]
+# {{cookiecutter.package_import_name}} = ["*.json", "*.yaml", "*.yml", "*.txt", "*.csv"]
 
 [project]
 name = "{{cookiecutter.repo_name}}"
