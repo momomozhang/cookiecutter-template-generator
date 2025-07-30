@@ -1,9 +1,9 @@
+![alt text](cookiecutter_repo_readme_demo.png)
+
 # My Python Project Starter
 
 My personal tool to bootstrap a new Python project, all done through a GitHub Action.
 It's the final project from `Taking Python to Production Course` by @phitoduck
-
-![alt text](cookiecutter_repo_readme_demo.png)
 
 ## 👉 [Check a generated repo here](https://github.com/momomozhang/example_20250730_01_generated_repo) 👈
 
