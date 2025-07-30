@@ -1,6 +1,18 @@
-![alt text](cookiecutter_repo_readme_demo.png)
+# Mengni's Python Project Starter
 
-# My Python Project Starter
+<div align="center">
+  <img src="cookiecutter_repo_readme_demo.png" alt="Cookiecutter Template Generator" width="600">
+</div>
+
+<div align="center">
+
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/momomozhang/cookiecutter-template-generator)
+[![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![Cookiecutter](https://img.shields.io/badge/cookiecutter-template-blue)](https://github.com/cookiecutter/cookiecutter)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+</div>
+
 
 My personal tool to bootstrap a new Python project, all done through a GitHub Action.
 It's the final project from `Taking Python to Production Course` by @phitoduck
