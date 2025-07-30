@@ -35,7 +35,7 @@ It's the final project from [Taking Python to Production Course](https://www.ude
 
 ## What I Get
 
-Each new project comes with:
+Each newly generated repo comes with:
 - A modern `pyproject.toml` setup.
 - `pytest` for testing.
 - `ruff` and `pylint` for code quality.
