@@ -3,8 +3,6 @@
 requires = ["setuptools>=65.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
-[tool.setuptools.package-data]
-{{cookiecutter.package_import_name}} = ["*.json"]
 
 [project]
 name = "{{cookiecutter.repo_name}}"
