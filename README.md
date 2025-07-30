@@ -21,6 +21,7 @@ Each new project comes with:
 - `ruff` and `pylint` for code quality.
 - A basic CI workflow that runs tests.
 - **Automatic PyPI publishing** - users can `pip install` my package once published.
+- Automatically includes non-Python files (JSON, YAML, etc.) in the PyPI distributions with proper `pyproject.toml` configuration
 
 ## Setup Note
 
