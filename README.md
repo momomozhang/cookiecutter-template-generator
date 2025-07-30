@@ -1,4 +1,4 @@
-# Mengni's Python Project Starter
+# Python Repo & PyPI Package Starter
 
 <div align="center">
   <img src="cookiecutter_repo_readme_demo.png" alt="Cookiecutter Template Generator" width="600">
@@ -14,7 +14,7 @@
 </div>
 
 
-My personal tool to bootstrap a new Python project, all done through a GitHub Action.
+Generator tool to bootstrap a new Python project, all done through a GitHub Action.
 It's the final project from `Taking Python to Production Course` by @phitoduck
 
 ## 👉 [Check a generated repo here](https://github.com/momomozhang/example_20250730_01_generated_repo) 👈
