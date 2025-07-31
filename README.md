@@ -33,9 +33,7 @@ It's the final project from [Taking Python to Production Course](https://www.ude
 - Cookiecutter templating
 
 
-## What I Get
-
-Each newly generated repo comes with:
+## Each newly generated repo comes with:
 - A modern `pyproject.toml` setup.
 - `pytest` for testing.
 - `ruff` and `pylint` for code quality.
@@ -43,20 +41,36 @@ Each newly generated repo comes with:
 - **Automatic PyPI publishing** - users can `pip install` my package once published.
 - Automatically includes non-Python files (JSON, YAML, etc.) in the PyPI distributions with proper `pyproject.toml` configuration
 
-## Setup Note
 
-This requires three secrets to be set up in *this* template repo:
-- `PERSONAL_GITHUB_TOKEN` - for creating and configuring repos
-- `TEST_PYPI_TOKEN` - for publishing to test PyPI
-- `PROD_PYPI_TOKEN` - for publishing to production PyPI
+## Using This Template Generator
 
-## Stey by step guide
+### Creating a New Repository
 
-1. Go to this repo's **Actions** tab.
-2. Find the **"Create New Python Repository"** workflow.
-3. Click **"Run workflow"**.
-4. Type in the new `repo_name` (e.g., `my-cool-app`).
-5. Type in the `package_import_name` (e.g., `my_cool_app`).
-6. Click the green "Run workflow" button.
+1. **Fork this repository** to your GitHub account
+2. **Add below secrets in *this* template repo:**
+   - `PERSONAL_GITHUB_TOKEN` - for creating and configuring repos
+   - `TEST_PYPI_TOKEN` - for publishing to test PyPI
+   - `PROD_PYPI_TOKEN` - for publishing to production PyPI
+3. **Run the GitHub workflow:**
+    - Go to **Actions** tab
+    - Select **"Create or Update Repo"** workflow
+    - Fill in:
+    - Repository name
+    - Public/private visibility
+    - Package import name (for `import package_name`)
+    - Click **"Run workflow"**.
+    - **Go to the newly generated repo** to review and `merge` the auto-generated pull request to populate the main branch
+4. **Clone the newly generated repo to local machine**:
+    ```bash
+    git clone https://github.com/your-username/your-repo-name.git
+    cd your-repo-name
+    make install  # Set up development environment
 
-That's it. The action will build the new repo, push the code, and open a PR for final setup.
+## Contributing
+
+If you have a suggestion or a fix, please feel free to open an issue or a pull request.
+
+### Development Setup
+   1. Fork and clone this repository
+   2. Install dependencies: `make install`
+   3. Verify setup: `make test`
