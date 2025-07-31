@@ -115,7 +115,7 @@ function try-load-dotenv {
 
 # args:
 #    REPO_NAME - name of the repository
-#    GITHUB_USERNAME - name of my github user, e.g. phitoduck
+#    GITHUB_USERNAME - name of the github user
 function push-initial-readme-to-repo {
     rm -rf "$REPO_NAME"
     gh repo clone "$GITHUB_USERNAME/$REPO_NAME"
@@ -132,7 +132,7 @@ function push-initial-readme-to-repo {
 
 # args:
 #    REPO_NAME - name of the repository
-#    GITHUB_USERNAME - name of my github user, e.g. phitoduck
+#    GITHUB_USERNAME - name of the github user
 #    IS_PUBLIC_REPO - if true, the repository will be public, otherwise private
 function create-repo-if-not-exists {
     local IS_PUBLIC_REPO=${IS_PUBLIC_REPO:-false}
@@ -159,7 +159,7 @@ function create-repo-if-not-exists {
 # args:
 #    TEST_PYPI_TOKEN, PROD_PYPI_TOKEN - auth token for test and prod PyPI
 #    REPO_NAME - name of the repository
-#    GITHUB_USERNAME - name of my github user, e.g. phitoduck
+#    GITHUB_USERNAME - name of the github user
 function configure-repo {
     # configure github actions secrets
     gh secret set TEST_PYPI_TOKEN \
@@ -185,7 +185,7 @@ function configure-repo {
 
 # args:
 #    REPO_NAME - name of the repository
-#    GITHUB_USERNAME - name of my github user, e.g. phitoduck
+#    GITHUB_USERNAME - name of the github user
 #    PACKAGE_IMPORT_NAME - e.g. if "exapmle_pkg" then "import example_pkg"
 function open-pr-with-generated-project {
     rm -rf "$REPO_NAME" ./outdir

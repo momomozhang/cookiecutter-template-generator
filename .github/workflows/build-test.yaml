@@ -44,8 +44,10 @@ jobs:
           python-version: '3.11'
       - name: Configure git CLI
         run: |
-          git config --global user.email "git-bot-user@python-course.com"
-          git config --global user.name "phitoduck"
+          EMAIL="${{ secrets.GIT_USER_EMAIL }}"
+          NAME="${{ secrets.GIT_USER_NAME }}"
+          git config --global user.email "${EMAIL:-action@github.com}"
+          git config --global user.name "${NAME:-${{ github.repository_owner }}}"
       - name: Run tests
         run: |
           make install
