@@ -26,14 +26,16 @@ jobs:
           fetch-depth: 0
       - name: Configure git user
         run: |
-          git config --global user.email "monicamengni@gmail.com"
-          git config --global user.name "Mengni Zhang"
+          EMAIL="${{ secrets.GIT_USER_EMAIL }}"
+          NAME="${{ secrets.GIT_USER_NAME }}"
+          git config --global user.email "${EMAIL:-action@github.com}"
+          git config --global user.name "${NAME:-${{ github.repository_owner }}}"
       - run: |
           bash -x run.sh create-repo-if-not-exists
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
           REPO_NAME: ${{ github.event.inputs.repo_name }}
-          GITHUB_USERNAME: momomozhang
+          GITHUB_USERNAME: ${{ github.repository_owner }}
           IS_PUBLIC_REPO: ${{ github.event.inputs.is_public_repo }}
 
 
@@ -46,8 +48,10 @@ jobs:
           fetch-depth: 0
       - name: Configure git user
         run: |
-          git config --global user.email "monicamengni@gmail.com"
-          git config --global user.name "Mengni Zhang"
+          EMAIL="${{ secrets.GIT_USER_EMAIL }}"
+          NAME="${{ secrets.GIT_USER_NAME }}"
+          git config --global user.email "${EMAIL:-action@github.com}"
+          git config --global user.name "${NAME:-${{ github.repository_owner }}}"
       - run: |
           bash -x run.sh configure-repo
         env:
@@ -55,7 +59,7 @@ jobs:
           TEST_PYPI_TOKEN: ${{ secrets.TEST_PYPI_TOKEN }}
           PROD_PYPI_TOKEN: ${{ secrets.PROD_PYPI_TOKEN }}
           REPO_NAME: ${{ github.event.inputs.repo_name }}
-          GITHUB_USERNAME: momomozhang
+          GITHUB_USERNAME: ${{ github.repository_owner }}
 
   open-pr-with-generated-project:
     needs: [create-repo-if-not-exists]
@@ -66,12 +70,14 @@ jobs:
           fetch-depth: 0
       - name: Configure git user
         run: |
-          git config --global user.email "monicamengni@gmail.com"
-          git config --global user.name "Mengni Zhang"
+          EMAIL="${{ secrets.GIT_USER_EMAIL }}"
+          NAME="${{ secrets.GIT_USER_NAME }}"
+          git config --global user.email "${EMAIL:-action@github.com}"
+          git config --global user.name "${NAME:-${{ github.repository_owner }}}"
       - run: |
           bash -x run.sh open-pr-with-generated-project
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
           REPO_NAME: ${{ github.event.inputs.repo_name }}
           PACKAGE_IMPORT_NAME: ${{ github.event.inputs.package_import_name }}
-          GITHUB_USERNAME: momomozhang
+          GITHUB_USERNAME: ${{ github.repository_owner }}
