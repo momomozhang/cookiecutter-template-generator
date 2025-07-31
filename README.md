@@ -20,7 +20,7 @@ Generator tool to bootstrap a new Python project, all done through a GitHub Acti
 It's the final project from [Taking Python to Production Course](https://www.udemy.com/course/setting-up-the-linux-terminal-for-software-development/) by @phitoduck
 
 
-## 👉 [Check a generated repo here](https://github.com/momomozhang/example_20250730_01_generated_repo) 👈
+## 👉 [Check a generated repo here](https://github.com/momomozhang/sample_generated_repo_20250731) 👈
 
 ## 🎉 What I learned:
 - CI/CD principles and Github Actions
