@@ -19,16 +19,6 @@ permissions:
 
 jobs:
   
-  check-version-txt:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Tag with the release version
-        run: |
-          git tag $(cat version.txt)
-
   lint-format-and-static-code-checks:
     runs-on: ubuntu-latest
     steps:
@@ -91,7 +81,6 @@ jobs:
       - execute-tests
       - build-wheel-and-sdist
       - lint-format-and-static-code-checks
-      - check-version-txt
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
